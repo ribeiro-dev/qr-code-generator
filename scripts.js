@@ -1,0 +1,1 @@
+const resultDiv = document.querySelector('.result')
