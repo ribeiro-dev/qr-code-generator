@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Gerador de QR Code</title>
 </head>
 
-<body>
+<body class="bg-dark text-white">
     <main class="container">
-        <h1 class="font-weight-bold text-body text-center my-5">Gerador de QR Code</h1>
+        <h1 class="font-weight-bold text-center my-5">Gerador de QR Code</h1>
 
         <div class="input-group">
             <input type="text" class="form-control input" placeholder="Insira a URL ou mensagem aqui">
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary btn-generate" type="button">Gerar</button>
+                <button class="btn btn-primary btn-generate" type="button">Gerar</button>
             </div>
         </div>
 
         <div class="result text-center mt-5">
+            <div>
+                <p class="alert alert-success d-none">Sucesso!</p>
+            </div>
             <img class="qr-code" src="" alt="">
         </div>
 
