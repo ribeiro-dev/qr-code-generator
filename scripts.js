@@ -1,7 +1,7 @@
 const btnGenerate = document.querySelector('.btn-generate')
 const input = document.querySelector('.input')
 const resultDiv = document.querySelector('.result')
-const resultAlert = document.querySelector('.alert')
+const resultAlert = document.querySelector('.alerts-wrapper')
 const resultImg = document.querySelector('.qr-code')
 
 const imgSize = '200x200'
@@ -11,32 +11,35 @@ const baseURL = `https://api.qrserver.com/v1/create-qr-code/?size=${imgSize}`
 
 btnGenerate.addEventListener('click', async (event) => {
     event.preventDefault()
-    const URL = baseURL + `&data=${input.value}`
+    
+    const inputValue = input.value.trim()
 
-    const alertIsNotVisible = resultAlert.classList.contains('d-none')
+    const URL = baseURL + `&data=${inputValue}`
 
-    if (!alertIsNotVisible) {
-        resultAlert.classList.add('d-none')
-        resultAlert.classList.remove('d-inline-flex')
-    }
-
+    resultAlert.innerHTML = ''
     resultImg.src = ''
 
+    resultImg.src = 'imgs/reload.png'
+    resultImg.classList.toggle('loading')
+    
     try {
         const response = await fetch(URL)
 
         if (response.ok) {
-            resultAlert.classList.toggle('d-inline-flex')
-            resultAlert.classList.toggle('d-none')
+            resultAlert.innerHTML = `<p class="alert alert-success d-inline-flex">Sucesso!</p>`
 
             resultImg.src = response.url
+            resultImg.classList.toggle('loading')
 
             return
         }
         throw new Error('Error while fetching')
 
     } catch (error) {
-        resultDiv.innerHTML = "Infelizmente ocorreu um erro :("
+        resultAlert.innerHTML = `<p class="alert alert-danger d-inline-flex">Infelizmente ocorreu um erro :(</p>`
+        resultImg.classList.toggle('loading')
+        resultImg.src = ''
+
         console.log(error)
     }
 

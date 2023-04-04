@@ -1,0 +1,20 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.input-group {
+    max-width: 900px;
+    margin: auto;
+}
+
+.loading {
+    animation: rotation 2s infinite linear;
+    filter: invert(1);
+}
+
+@keyframes rotation {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(359deg); }
+}
