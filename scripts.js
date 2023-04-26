@@ -15,6 +15,7 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault()
     
     loadingImg.style.display = 'inline'
+    resultImg.style.display = 'none'
 
     const inputValue = input.value.trim()
     const URL = baseURL + `&data=${inputValue}`
@@ -30,6 +31,8 @@ form.addEventListener('submit', async (event) => {
         if (response.ok) {
             resultAlert.innerHTML = `<p class="alert alert-success d-inline-flex">Sucesso!</p>`
             resultImg.src = response.url
+            resultImg.style.display = 'inline'
+
 
             return
         }
