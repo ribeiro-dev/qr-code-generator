@@ -21,6 +21,7 @@ body {
 }
 
 .loading {
+    display: none;
     animation: rotation 2s infinite linear;
     filter: invert(1);
 }
