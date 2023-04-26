@@ -3,13 +3,14 @@ const input = document.querySelector('.input')
 const resultDiv = document.querySelector('.result')
 const resultAlert = document.querySelector('.alerts-wrapper')
 const resultImg = document.querySelector('.qr-code')
+const form = document.forms.urlText
 
 const imgSize = '200x200'
 const baseURL = `https://api.qrserver.com/v1/create-qr-code/?size=${imgSize}`
 
 
 
-btnGenerate.addEventListener('click', async (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault()
     
     const inputValue = input.value.trim()
